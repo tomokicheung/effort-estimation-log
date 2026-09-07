@@ -1,0 +1,158 @@
+name: Estimation Log Entry
+description: Record an estimate before starting a task, then the actual time and reflection after.
+title: "[WOD] "
+labels: ["estimation-log"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open this issue **before** starting the timer. Fill in Estimation and
+        "What is new here?" only, then start work. Everything below the divider
+        is completed when you close the issue.
+
+  - type: input
+    id: estimate
+    attributes:
+      label: Estimation
+      description: Recorded before starting. Do not revise it afterward.
+      placeholder: "30 minutes"
+    validations:
+      required: true
+
+  - type: textarea
+    id: new-concepts
+    attributes:
+      label: What is new here?
+      description: >
+        Things you have never written before. This is the strongest predictor of
+        overrun: count the ideas, not the perceived difficulty.
+      placeholder: |
+        - index signature (object type with open-ended keys)
+        - all-or-nothing check-then-act logic
+    validations:
+      required: true
+
+  - type: input
+    id: attempt
+    attributes:
+      label: Attempt number
+      placeholder: "1"
+
+  - type: markdown
+    attributes:
+      value: "---"
+
+  - type: input
+    id: actual
+    attributes:
+      label: Actual Time Spent
+      placeholder: "47 minutes"
+
+  - type: markdown
+    attributes:
+      value: "### AI assistance"
+
+  - type: input
+    id: ai-tool
+    attributes:
+      label: AI Tool / Provider
+      placeholder: "Claude / Anthropic"
+
+  - type: input
+    id: ai-model
+    attributes:
+      label: Model / Version
+      placeholder: "Opus 5"
+
+  - type: input
+    id: ai-prompts
+    attributes:
+      label: Prompt count
+      description: Number of prompt iterations.
+      placeholder: "12"
+
+  - type: input
+    id: ai-prompt-time
+    attributes:
+      label: Prompt time
+      description: Minutes writing and iterating on prompts.
+      placeholder: "10 mins"
+
+  - type: input
+    id: ai-generation-time
+    attributes:
+      label: Generation time
+      description: Minutes waiting for and reading model output.
+      placeholder: "3 mins"
+
+  - type: input
+    id: ai-verification-time
+    attributes:
+      label: Verification time
+      description: Minutes reviewing, testing, and correcting output.
+      placeholder: "15 mins"
+
+  - type: input
+    id: ai-integration-time
+    attributes:
+      label: Integration / refactor time
+      description: Minutes adapting generated content into the project.
+      placeholder: "5 mins"
+
+  - type: input
+    id: ai-provenance
+    attributes:
+      label: Provenance / notes link
+      description: Link to prompts, diffs, or verification evidence.
+      placeholder: "./ai-notes/jj3.md"
+
+  - type: textarea
+    id: ai-rejected
+    attributes:
+      label: What you changed or rejected
+      description: >
+        Accepting generated output and sending it back are different entries.
+        Record which one this was.
+
+  - type: markdown
+    attributes:
+      value: "### Outcome"
+
+  - type: textarea
+    id: right-first-pass
+    attributes:
+      label: What came out right on the first pass
+      description: >
+        What stopped needing correction is a better progress signal than the raw
+        minutes.
+
+  - type: textarea
+    id: where-time-went
+    attributes:
+      label: Where the time actually went
+      description: >
+        Separate the categories: syntax lookup, scope errors, design decisions,
+        test construction. "It was hard" is not usable later.
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: How you verified it
+      description: What you ran, and what you compared the output against.
+
+  - type: textarea
+    id: reflection
+    attributes:
+      label: Reflections
+      description: >
+        Under or over, why, and one concrete thing you will do differently.
+        "I will be more careful" is not concrete. "Count new concepts before
+        estimating" is.
+    validations:
+      required: true
+
+  - type: input
+    id: work-link
+    attributes:
+      label: Link to the work
+      placeholder: "https://www.typescriptlang.org/play/?#code/..."
